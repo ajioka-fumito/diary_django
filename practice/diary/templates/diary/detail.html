@@ -15,6 +15,24 @@
         <td>{{day.date}}</td>
     </tr>
 </table>
+<h3>comments</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>comment</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for comment in comments %}
+    <tr>
+        <td>{{comment.comment}}</td>
+        <td>{{comment.date}}</td>
+        
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
 
 <form action='' method='POST'>
     {{form.as_p}}

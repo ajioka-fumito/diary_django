@@ -47,8 +47,10 @@ def detail(request,pk):
     if request.method == 'POST' and form.is_valid():
         form.save()
         return redirect('diary:index')
+    comments = Comment.objects.filter(comment_id=day.id)
     context = {
         'day':day,
-        'form':form
+        'form':form,
+        'comments':comments
     }
     return render(request,'diary/detail.html',context)
