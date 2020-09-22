@@ -19,9 +19,13 @@
             <td>{{day.date}}</td>
             <td><a href="{% url 'diary:edit' day.pk %}">Edit</a></td>
             <td><a href="{% url 'diary:delete' day.pk %}">Delete</a></td>
+            {% if day.id in flg%}
+            <td>○</td>
+            {% else %}
+            <td>×</td>
+            {% endif %}
         </tr>
         {% endfor %}
-
     </tbody>
 </table>
 {% endblock %}

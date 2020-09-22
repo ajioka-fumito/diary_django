@@ -4,7 +4,9 @@ from .forms import DayCreateForm,CommentCreateForm
 # Create your views here.
 
 def index(request):
+    flg = set(Comment.objects.values_list('comment_id',flat=True))
     context = {
+        'flg':flg,
         'day_list':Day.objects.all(),
     }
     return render(request,'diary/index.html',context)
