@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect,get_object_or_404
-from .models import Day 
-from .forms import DayCreateForm
+from .models import Day, Comment
+from .forms import DayCreateForm,CommentCreateForm
 # Create your views here.
 
 def index(request):
@@ -42,7 +42,12 @@ def delete(request,pk):
 
 def detail(request,pk):
     day = get_object_or_404(Day,pk=pk)
+    form = CommentCreateForm(request.POST or None)
+    if request.method == 'POST' and form.is_valid():
+        form.save()
+        return redirect('diary:index')
     context = {
-        'day':day
+        'day':day,
+        'form':form
     }
     return render(request,'diary/detail.html',context)
