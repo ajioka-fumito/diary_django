@@ -42,7 +42,8 @@ def delete(request,pk):
 
 def detail(request,pk):
     day = get_object_or_404(Day,pk=pk)
-    form = CommentCreateForm(request.POST or None)
+    form = CommentCreateForm(request.POST or None,initial={'comment_id':day.id})
+    print(form)
     if request.method == 'POST' and form.is_valid():
         form.save()
         return redirect('diary:index')

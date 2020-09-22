@@ -9,4 +9,7 @@ class DayCreateForm(forms.ModelForm):
 class CommentCreateForm(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = '__all__'
+        fields = ('comment_id','comment')
+        widgets = {
+            'comment_id':forms.HiddenInput()
+        } 
