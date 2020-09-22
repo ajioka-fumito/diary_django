@@ -15,8 +15,9 @@
         
         {% for day in day_list %}
         <tr>
-        <td>{{day.title}}</td>
-        <td>{{day.date}}</td>
+            <td>{{day.title}}</td>
+            <td>{{day.date}}</td>
+            <td><a href="{% url 'diary:edit' day.pk %}">更新</a></td>    
         </tr>
         {% endfor %}
 
