@@ -17,7 +17,8 @@
         <tr>
             <td>{{day.title}}</td>
             <td>{{day.date}}</td>
-            <td><a href="{% url 'diary:edit' day.pk %}">更新</a></td>    
+            <td><a href="{% url 'diary:edit' day.pk %}">Edit</a></td>
+            <td><a href="{% url 'diary:delete' day.pk %}">Delete</a></td>
         </tr>
         {% endfor %}
 
